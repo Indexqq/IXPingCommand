@@ -6,7 +6,7 @@ use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\player\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\TextFormat;
+use pocketmine\utils\TextFormat as TF;
 
 class Main extends PluginBase {
 
@@ -28,12 +28,12 @@ class PingCommand extends Command {
         }
 
         if (!$sender instanceof Player) {
-            $sender->sendMessage(TextFormat::RED . "This command can only be used in-game.");
+            $sender->sendMessage(TF::RED . "This command can only be used in-game.");
             return true;
         }
 
         $ping = $sender->getNetworkSession()->getPing();
-        $sender->sendMessage(TextFormat::GREEN . "Your ping: " . $ping . "ms");
+        $sender->sendMessage(TF::GREEN . "Your ping: " . $ping . "ms");
         return true;
     }
 }
